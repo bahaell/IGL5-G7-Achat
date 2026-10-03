@@ -1,0 +1,36 @@
+[stderr] INFO:     Started server process [20812]
+[stderr] INFO:     Waiting for application startup.
+[stderr] INFO:     Application startup complete.
+[stderr] INFO:     Uvicorn running on http://127.0.0.1:8765 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61802 - "GET /health HTTP/1.1" 200 OK
+[stderr] INFO:     ('127.0.0.1', 61803) - "WebSocket /ws" [accepted]
+[stderr] 2026-10-03 09:35:16 INFO     [codeboarding_pro.ws.server:258] WebSocket connected: session ce489103-bcdd-4ba0-af58-4275f123c244
+[stderr] INFO:     connection open
+[stderr] 2026-10-03 09:35:24 INFO     [tool_registry.manifest:320] has_required_tools: csharp missing or stale at C:\Users\USER\.codeboarding\servers\bin\win\pm-tools\csharp-ls\csharp-ls.exe
+[stderr] 2026-10-03 09:35:26 INFO     [tool_registry.manifest:320] has_required_tools: csharp missing or stale at C:\Users\USER\.codeboarding\servers\bin\win\pm-tools\csharp-ls\csharp-ls.exe
+[stderr] 2026-10-03 09:35:29 INFO     [tool_registry.installers:451] Installing Node.js packages: ['pyright@1.1.400', 'typescript-language-server@4.3.4', 'typescript@5.7', 'intelephense@1.16.5']
+[stderr] 2026-10-03 09:36:56 INFO     [tool_registry.installers:465] Node.js packages installed successfully
+[stderr] 2026-10-03 09:36:56 INFO     [tool_registry.installers:225]   tokei: already installed, skipping
+[stderr] 2026-10-03 09:36:56 INFO     [tool_registry.installers:225]   gopls: already installed, skipping
+[stderr] 2026-10-03 09:36:57 INFO     [tool_registry.installers:225]   rust-analyzer: already installed, skipping
+[stderr] 2026-10-03 09:36:59 INFO     [tool_registry.installers:489] java already installed
+[stderr] 2026-10-03 09:36:59 WARNING  [tool_registry.installers:397]   csharp-ls: dotnet install failed (exit 2147516571): The command could not be loaded, possibly because:
+[stderr]   * You intended to execute a .NET application:
+[stderr]       The application 'tool' does not exist or is not a managed .dll or .exe.
+[stderr]   * You intended to execute a .NET SDK command:
+[stderr]       No .NET SDKs were found.
+[stderr] 
+[stderr] Download a .NET SDK:
+[stderr] https://aka.ms/dotnet/download
+[stderr] 
+[stderr] Learn about SDK resolution:
+[stderr] https://aka.ms/dotnet/sdk-not-found
+[stderr] 
+[stderr] 2026-10-03 09:37:00 INFO     [static_analyzer.java_utils:115] Using JAVA_HOME Java 21 at C:\Program Files\Java\jdk-21
+[stderr] 2026-10-03 09:37:00 INFO     [codeboarding_pro.lsp.bootstrap:56] LSP startup attempt 1/3
+[stderr] 2026-10-03 09:37:00 INFO     [codeboarding_pro.session:183] Session ce489103-bcdd-4ba0-af58-4275f123c244 initialized: repo=D:\achat, project=achat, output=D:\achat\.codeboarding
+[stderr] 2026-10-03 09:37:20 INFO     [static_analyzer:120] Creating engine config for Java (maven) at: .
+[stderr] 2026-10-03 09:37:20 INFO     [static_analyzer:238] Starting engine LSP client for Java at D:\achat
+[stderr] 2026-10-03 09:37:25 INFO     [static_analyzer.java_utils:115] Using JAVA_HOME Java 21 at C:\Program Files\Java\jdk-21
+[stderr] 2026-10-03 09:37:33 INFO     [static_analyzer:263] Java LSP start: 12.7s
+[stderr] 2026-10-03 09:37:33 INFO     [static_analyzer.engine.lsp_client:478] Waiting for LSP server to be ready...
