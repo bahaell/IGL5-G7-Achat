@@ -14,9 +14,25 @@
 	<name>achat</name>
 	<description>Projet pour le module DevOps</description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
+
+	<!-- Forcer byte-buddy 1.14.9 pour compatibilite Java 21 + Mockito -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>net.bytebuddy</groupId>
+				<artifactId>byte-buddy</artifactId>
+				<version>1.14.9</version>
+			</dependency>
+			<dependency>
+				<groupId>net.bytebuddy</groupId>
+				<artifactId>byte-buddy-agent</artifactId>
+				<version>1.14.9</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -35,6 +51,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+			<version>1.18.30</version>
 			<optional>true</optional>
 		</dependency>
 		<dependency>
@@ -47,13 +64,20 @@
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>4.8.1</version>
+			<version>4.11.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>4.8.1</version>
+			<version>4.11.0</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- byte-buddy-agent requis par Mockito inline mock maker -->
+		<dependency>
+			<groupId>net.bytebuddy</groupId>
+			<artifactId>byte-buddy-agent</artifactId>
+			<version>1.14.9</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -105,11 +129,11 @@
 				</configuration>
 			</plugin>
 
-			<!-- JaCoCo : couverture de code -->
+			<!-- JaCoCo : couverture de code (Java 21 compatible) -->
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.8</version>
+				<version>0.8.11</version>
 				<executions>
 					<!-- Prepare l'agent JaCoCo avant les tests -->
 					<execution>

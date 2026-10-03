@@ -59,11 +59,17 @@ public class ProduitServiceImplMockTest {
     @Test
     @Order(1)
     public void testAddProduit_withMockito() {
-        // Arrange : définir le comportement du mock
+        // Arrange
+        // ProduitServiceImpl.addProduit() fait : produitRepository.save(p); return p;
+        // JPA/Hibernate set l'id directement sur l'objet p via reference.
+        // On simule ce comportement avec doAnswer.
         Produit input = buildProduit(null, "PROD-M01", "Stylo Mock", 2.0f);
-        Produit savedMock = buildProduit(10L, "PROD-M01", "Stylo Mock", 2.0f);
 
-        when(produitRepository.save(any(Produit.class))).thenReturn(savedMock);
+        doAnswer(invocation -> {
+            Produit p = invocation.getArgument(0);
+            p.setIdProduit(10L); // simule la generation d'id par JPA
+            return p;
+        }).when(produitRepository).save(any(Produit.class));
 
         // Act
         Produit result = produitService.addProduit(input);
